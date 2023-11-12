@@ -578,3 +578,17 @@
 > //销毁组件时调用
 > viewer.destroy()
 >```
+---
+## *废弃函数列表*
+>```javascript
+> //销毁组件时调用
+> viewer.pause()
+> viewer.stop()
+> viewer.setMax()
+> viewer.setMin()
+> viewer.hideSections()
+> viewer.showSections()
+> viewer.showSomeSections()
+> viewer.toggleGrid()
+> viewer.toggleLight()
+>```
