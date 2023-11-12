@@ -284,7 +284,6 @@
 >| number | max | 否 | - | - | - |
 >| - | - | - | - | 图例最小值到最大值数组 | 当前数据如果超出设置阈值,则会显示白色,该颜色可使用setExColor方法修改 |
 >- **代码示例：**
->|
 >```javascript
 > let numarr = viewer.setMinMax(0,10)
 >   // console.log(numArr)  
