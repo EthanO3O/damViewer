@@ -143,7 +143,7 @@
 >| string array | pathArr | 否 | - | promise数组 | 要读取文件的路径 |
 >- **代码示例：**
 >```javascript
-> let items = viewer.preloadObj(['./test1.vtr','./test2.vtr','./test3.vtr'])
+> let items = viewer.preloadObj(['./test1.obj','./test2.obj','./test3.obj'])
 > Promise.all(items).then(()=>{
 >   //播放切换动画,定时器请自行实现
 > })
