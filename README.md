@@ -247,7 +247,7 @@
 > 
 >| 参数类型 | 参数名称 | 可选 |默认值 | 返回值 | 备注 |
 >| :-------- | :------ |------ | ------ |------ |------ |
->| string | datatype | 否 | - | - | "temperature","stress","displacements","seepage" |
+>| string | datatype | 否 | - | - | 可选项包含:"temperature","stress","displacements","seepage" |
 >| string |axis | 否 | - | - | 见示例中注释 |
 >| number | step | 否 | - | - | - |
 >| - | - | - | - | 图例最小值到最大值数组 | - |
@@ -272,6 +272,41 @@
 > //当类型是temperature或者seepage时,第二个参数axis请留空:""
 > //当类型是stress时,axis类型:"X","Y","Z","XY","XZ","YZ","Ci","Cii","Ciii"
 > //当类型是displacements时,axis类型:"X","Y","Z","C"
+>```
+
+> ### **多vtr文件加载后切换数据：**
+>- **方法名：**
+> **[jumpToFile(args,cb)](#)**
+> 
+>| 参数类型 | 参数名称 | 可选 |默认值 | 返回值 | 备注 |
+>| :-------- | :------ |------ | ------ |------ |------ |
+>| object | args | 否 | - | - | 重置最大最小值到当前默认值 |
+>| function | cb | 否 | - | - | 重置最大最小值到当前默认值 |
+>  - **args**
+> 
+>| 参数类型 | 参数名称 | 可选 |默认值 | 返回值 | 备注 |
+>| :-------- | :------ |------ | ------ |------ |------ |
+>| string | datatype | 否 | 0.5 | - | "temperature","stress","displacements","seepage" |
+>| string | axis | 否 | - | - | 同setData的 axis|
+>| number | index | 否 | - | - | 要切换到的文件下标,顺序与preloadvtr时相同 |
+>| number | num | 否 | - | - | 是否同时显示变形,0表示不变形,同showAmplification |
+>| bool | havePit | 是 | - | - | 冲坑模型(仅万家寨) |
+>| - | - | - | - | - | cb带回的参数是一个对象,其中nums是图例最小值到最大值数组|
+>- **代码示例：**
+>```javascript
+> viewer.jumpToFile(
+    {
+        datatype:'temperature',
+        axis:'',
+        index:'2',//第三个传入的文件,如果有
+        num:'2',
+    },(res)=>{
+        console.log(res)
+        //{nums: Array(11), index: 2, file: 'nsbd4'}
+    }
+)
+>   // console.log(numArr)  
+>   //['-0.051', '-0.041', '-0.031', '-0.021', '-0.011', '-0.001', '0.009', '0.02', '0.03', '0.04', '0.05']
 >```
 
 > ### **设置当前选中数据的最大最小值：**
