@@ -22,7 +22,7 @@
 >| :-------- | :------ |------ | ------ |------ |
 >| HTMLElement | dom | 否 | - | - |
 >| bool | colorPannal | 是 | false |是否使用默认色板 |
->| bool | axesBox | 是 | false |是否启用轴向盒色板 |
+>| bool | axesBox | 是 | false |是否启用轴向盒 |
 >| number | pointSize | 是 | 0.5|ray模式下,跟随鼠标的小球大小|
 >| number array | selectColor | 是 | [1,1,1]|ray模式下,被选中测点要改变的颜色,表示(r,g,b)|
 >| number | scaleW | 是 | 1 |如果进行了transfrom scale 填入该值|
