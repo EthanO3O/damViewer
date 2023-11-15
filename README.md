@@ -3,7 +3,7 @@
 | 日期 | 版本号 | 作者 | 备注 |
 | ------------ | ----------- | ----------- | ----------- |
 | 2023-11 | 1.1.0 | Ethan | 较早先版本改动较大,废弃部分多余方法(见最后),修改大部分方法参数,增加了一些功能 |
-
+| 2023-11 | 1.1.2 | Ethan | 修复外部容器scale时选取模式的位置错误问题,增加实例化时待选参数 |
 ---
 ---
 ## *引入&实例化*
@@ -23,7 +23,9 @@
 >| HTMLElement | dom | 否 | - | - |
 >| bool | colorPannal | 是 | false |是否使用默认色板 |
 >| number | pointSize | 是 | 0.5|ray模式下,跟随鼠标的小球大小|
->| number array | selectColor | 是 | [1,1,1]|三个值为0-1,表示(r,g,b)|
+>| number array | selectColor | 是 | [1,1,1]|ray模式下,被选中测点要改变的颜色,表示(r,g,b)|
+>| number | scaleW | 是 | 1 |如果进行了transfrom scale 填入该值|
+>| number | scaleH | 是 | 1 |如果进行了transfrom scale 填入该值|
 >- **代码示例：**
 >```javascript
 > const dom = document.getElementById('vtk-renderer')
@@ -31,7 +33,9 @@
 >   container:dom,
 >   colorPannal:false,
 >   pointSize:0.5,
->   selectColor:[1,0,0]
+>   selectColor:[1,0,0],
+>   scaleW:0.5,
+>   scaleH:0.5,
 > }
 > const viewer = new DamViewer(config)
 >```
