@@ -587,21 +587,12 @@
 >| number Array | target | 是 | - | - | 摄像机聚焦位置数组 |
 >- **代码示例：**
 >```javascript
-> //拾取坝段
-> viewer.startRay('section',(data)=>{
->    console.log(data)
->    //{section: '1', data: 0.00124956}
->})
-> //拾取切片
-> viewer.startRay('cut',(data)=>{
->    console.log(data)
->    //{section: '1', data: 0.00124956}
->})
-> //拾取测点
-> viewer.startRay('mPoint',(data)=>{
->    console.log(data)
->    //{"name": "G-TP2","type": "变形监测","project": "水平位移"}
->})
+> //从x正方向查看模型
+> viewer.resetCamera('X')
+> //从Y负方向查看模型
+> viewer.resetCamera('-Y')
+> //自定义摄像机查看位置,相机放置坐标xyz 20,20,20 聚焦到xyz 0,0,0
+> viewer.resetCamera('custom',false,[20,20,20],[0,0,0])
 >```
 
 > ### **设置正交/透视摄像机：**
