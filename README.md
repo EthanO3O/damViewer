@@ -589,7 +589,7 @@
 >| number(0-3) | num | 否 | - | - | 0为不变形,不要输入过大数字建议在3以内 |
 >- **代码示例：**
 >```javascript
-> //设置背景色为白色
+> //设置变形系数1
 > viewer.showAmplification(1)
 >```
 
@@ -599,8 +599,8 @@
 > 
 >- **代码示例：**
 >```javascript
-> //设置背景色为白色
-> viewer.hideAmplification()
+> //取消变形
+> viewer.hideAmplification()//
 >```
 ---
 [返回目录](#目录)
