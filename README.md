@@ -74,8 +74,8 @@
 >| bool | axesBox | 是 | false |是否启用轴向盒 |
 >| number | pointSize | 是 | 0.5|ray模式下,跟随鼠标的小球大小|
 >| number array | selectColor | 是 | [1,1,1]|ray模式下,被选中测点要改变的颜色,表示(r,g,b)|
->| number | scaleW | 是 | 1 |如果进行了transfrom scale 填入该值|
->| number | scaleH | 是 | 1 |如果进行了transfrom scale 填入该值|
+>| number | scaleW | 是 | 1 |如果上级页面css中有transfrom scaleX 填入该值|
+>| number | scaleH | 是 | 1 |如果上级页面css中有transfrom scaleY 填入该值|
 >- **代码示例：**
 >```javascript
 > const dom = document.getElementById('vtk-renderer')
