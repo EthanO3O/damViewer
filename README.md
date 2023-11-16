@@ -358,16 +358,16 @@
 >- **代码示例：**
 >```javascript
 > viewer.jumpToFile(
-    {
-        datatype:'temperature',
-        axis:'',
-        index:'2',//第三个传入的文件,如果有
-        num:'2',
-    },(res)=>{
-        console.log(res)
-        //{nums: Array(11), index: 2, file: 'nsbd4'}
-    }
-)
+>    {
+>        datatype:'temperature',
+>        axis:'',
+>        index:'2',//第三个传入的文件,如果有
+>        num:'2',
+>    },(res)=>{
+>        console.log(res)
+>        //{nums: Array(11), index: 2, file: 'nsbd4'}
+>    }
+> )
 >   // console.log(numArr)  
 >   //['-0.051', '-0.041', '-0.031', '-0.021', '-0.011', '-0.001', '0.009', '0.02', '0.03', '0.04', '0.05']
 >```
