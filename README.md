@@ -7,6 +7,7 @@
 | 2023-11 | 1.1.4 | Ethan | 修复组件销毁时可能存在的错误 |
 | 2023-12 | 1.1.5 | Ethan | 移除加载模型后自动调整摄像机,如有需要手动调用 |
 | 2023-12 | 1.1.6 | Ethan | 切片测点加载后不再自动显示,切片在不可见时,setdata依然生效 |
+| 2023-12 | 1.1.9 | Ethan | 增加轴对换,增加视角字符 |
 ---
 - # 目录
   - [引入&实例化](#引入实例化)
@@ -74,6 +75,7 @@
 >| HTMLElement | dom | 否 | - | - |
 >| bool | colorPannal | 是 | false |是否使用默认色板 |
 >| bool | axesBox | 是 | false |是否启用轴向盒 |
+>| bool | axisSwap | 是 | false |是否启用轴向对调 |
 >| number | pointSize | 是 | 0.5|ray模式下,跟随鼠标的小球大小|
 >| number array | selectColor | 是 | [1,1,1]|ray模式下,被选中测点要改变的颜色,表示(r,g,b)|
 >| number | scaleW | 是 | 1 |如果上级页面css中有transfrom scaleX 填入该值|
@@ -85,6 +87,7 @@
 >   container:dom,
 >   colorPannal:false,
 >   axesBox:false,
+>   axisSwap:false,
 >   pointSize:0.5,
 >   selectColor:[1,0,0],
 >   scaleW:0.5,
@@ -656,7 +659,7 @@
 > 
 >| 参数类型 | 参数名称 | 可选 |默认值 | 返回值 | 备注 |
 >| :-------- | :------ |------ | ------ |------ |------ |
->| string | direction | 否 | - | - | 可选项有:"X","-X","Y","-Y","Z","-Z","custom",不填 |
+>| string | direction | 否 | - | - | 可选项有:"X","-X","Y","-Y","Z","-Z","custom","top","bottom","left","right","front","back",不填 |
 >| number | dis | 是 | - | - | 摄像机距离,默认计算可填写 false 或 0 |
 >| number Array | pos | 是 | - | - | 摄像机位置数组 |
 >| number Array | target | 是 | - | - | 摄像机聚焦位置数组 |
