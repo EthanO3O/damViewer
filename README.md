@@ -722,7 +722,7 @@
 
 >- **代码示例：**
 >```javascript
-> //对换横轴和深度轴
+> //从当前div切换到rongqi div
 > viewer.setContainer(document.getElementById('rongqi'))
 >```
 
