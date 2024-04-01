@@ -9,7 +9,8 @@
 | 2023-12 | 1.1.6 | Ethan | 切片测点加载后不再自动显示,切片在不可见时,setdata依然生效 |
 | 2024-3 | 1.1.9 | Ethan | 增加轴对换,增加视角字符 |
 | 2024-3 | 1.2.0 | Ethan | 增加容器切换 |
-| 2024-4 | 1.2.1 | Ethan | 增加绝对最大值最小值获取方法 |
+| 2024-3 | 1.2.2 | Ethan | 增加缝开度与屈服解析 |
+| 2024-4 | 1.2.3 | Ethan | 增加绝对最大值最小值获取方法 |
 ---
 - # 目录
   - [引入&实例化](#引入实例化)
@@ -321,7 +322,7 @@
 > 
 >| 参数类型 | 参数名称 | 可选 |默认值 | 返回值 | 备注 |
 >| :-------- | :------ |------ | ------ |------ |------ |
->| string | datatype | 否 | - | - | 可选项包含:"temperature","stress","displacements","seepage" |
+>| string | datatype | 否 | - | - | 可选项包含:"temperature","stress","displacements","seepage","opening","yeildzone" |
 >| string |axis | 否 | - | - | 见示例中注释 |
 >| number | step | 否 | - | - | - |
 >| - | - | - | - | 图例最小值到最大值数组 | - |
@@ -342,10 +343,10 @@
 >   // console.log(numArr)  
 >   //['-0.051', '-0.041', '-0.031', '-0.021', '-0.011', '-0.001', '0.009', '0.02', '0.03', '0.04', '0.05']
 > }
-> // datatype类型有:"temperature","stress","displacements","seepage"
-> //当类型是temperature或者seepage时,第二个参数axis请留空:""
-> //当类型是stress时,axis类型:"X","Y","Z","XY","XZ","YZ","Ci","Cii","Ciii"
-> //当类型是displacements时,axis类型:"X","Y","Z","C"
+> // datatype类型有:"temperature","stress","displacements","seepage","opening","yeildzone"
+> // 当类型是temperature/seepage/opening/yeildzone时,第二个参数axis请留空:""
+> // 当类型是stress时,axis类型:"X","Y","Z","XY","XZ","YZ","Ci","Cii","Ciii"
+> // 当类型是displacements时,axis类型:"X","Y","Z","C"
 >```
 
 > ### **多数据vtr文件加载后切换数据：**
@@ -360,7 +361,7 @@
 > 
 >| 参数类型 | 参数名称 | 可选 |默认值 | 返回值 | 备注 |
 >| :-------- | :------ |------ | ------ |------ |------ |
->| string | datatype | 否 | 0.5 | - | "temperature","stress","displacements","seepage" |
+>| string | datatype | 否 | 0.5 | - | "temperature","stress","displacements","seepage","opening","yeildzone" |
 >| string | axis | 否 | - | - | 同setData的 axis|
 >| number | index | 否 | - | - | 要切换到的文件下标,顺序与preloadvtr时相同 |
 >| number | num | 否 | - | - | 是否同时显示变形,0表示不变形,同showAmplification |
@@ -413,21 +414,21 @@
 >   //['-0.051', '-0.041', '-0.031', '-0.021', '-0.011', '-0.001', '0.009', '0.02', '0.03', '0.04', '0.05']
 >```
 
-> ### **获取已加载坝段&切片的绝对最大最小值：**
+> ### **获取已加载坝段的绝对最大最小值：**
 >- **方法名：**
 > **[updateAbsRange(datatype,axis,step)](#)**
 > 
 >| 参数类型 | 参数名称 | 可选 |默认值 | 返回值 | 备注 |
 >| :-------- | :------ |------ | ------ |------ |------ |
->| string | datatype | 否 | - | - | 可选项包含:"temperature","stress","displacements","seepage" |
->| string |axis | 否 | - | - | 见示例中注释 |
+>| string | datatype | 否 | - | - | 可选项包含:"temperature","stress","displacements","seepage","opening","yeildzone" |
+>| string | axis | 否 | - | - | 见示例中注释 |
 >| number | step | 否 | - | - | - |
->| - | - | - | - | 绝对最大值最小值对象 | - |
+>| - | - | - | - | 绝对最大值最小值对象与所在材料号 | - |
 >- **代码示例：**
 >```javascript
 > let absRange = viewer.updateAbsRange('stress','Ciii',0)
 >   // console.log(absRange)  
->   //{max: 0.058594111, min: 0}
+>   //{maxSection: '16', minSection: '16', max: 0.058594111, min: 0}
 >```
 ---
 [返回目录](#目录)
